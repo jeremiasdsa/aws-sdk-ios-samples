@@ -19,14 +19,16 @@ import AWSCore
 //WARNING: To run this sample correctly, you must set the following constants.
 
 let AWSRegion = AWSRegionType.Unknown // e.g. AWSRegionType.USEast1
-let CognitoIdentityPoolId = "YourCognitoIdentityPoolId"
+let CognitoIdentityPoolId = "xxxxxxxxxxxxxxxxxxxxxxx"
 let CertificateSigningRequestCommonName = "IoTSampleSwift Application"
 let CertificateSigningRequestCountryName = "Your Country"
 let CertificateSigningRequestOrganizationName = "Your Organization"
 let CertificateSigningRequestOrganizationalUnitName = "Your Organizational Unit"
-let PolicyName = "YourPolicyName"
+let PolicyName = "xxxxxxxxxxxxxxxxxxxxxxx"
 
 // This is the endpoint in your AWS IoT console. eg: https://xxxxxxxxxx.iot.<region>.amazonaws.com
 
-let IOT_ENDPOINT = "https://xxxxxxxxxx.iot.<region>.amazonaws.com"
+let IOT_ENDPOINT = "https://xxxxxxxxxxxxxxxxxxxxxxx"
 let ASWIoTDataManager = "MyIotDataManager"
+
+var topic = "/request"

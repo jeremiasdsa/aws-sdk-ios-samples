@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7486623E92C73858C0A0F2F8 /* Pods_IoTSampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A32F1D99230C34735307AD0 /* Pods_IoTSampleSwift.framework */; };
-		A62CEE5B1BF3B50800E9C895 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62CEE5A1BF3B50800E9C895 /* SubscribeViewController.swift */; };
 		A6867C941BF530A700956B68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6867C931BF530A700956B68 /* Constants.swift */; };
 		A6B39BB51BF3A93600045F73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B39BB41BF3A93600045F73 /* AppDelegate.swift */; };
 		A6B39BB71BF3A93600045F73 /* ConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B39BB61BF3A93600045F73 /* ConnectionViewController.swift */; };
-		A6B39BB91BF3A93600045F73 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B39BB81BF3A93600045F73 /* PublishViewController.swift */; };
 		A6B39BBC1BF3A93600045F73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B39BBA1BF3A93600045F73 /* Main.storyboard */; };
 		A6B39BBE1BF3A93600045F73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B39BBD1BF3A93600045F73 /* Assets.xcassets */; };
 		A6B39BC11BF3A93600045F73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B39BBF1BF3A93600045F73 /* LaunchScreen.storyboard */; };
@@ -27,12 +25,10 @@
 		19CC868788E3FB2186476009 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3B90C03514D3F9F7EDF1FF45 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		91B555020565954B6F61098C /* Pods-IoTSampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTSampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-IoTSampleSwift/Pods-IoTSampleSwift.release.xcconfig"; sourceTree = "<group>"; };
-		A62CEE5A1BF3B50800E9C895 /* SubscribeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
 		A6867C931BF530A700956B68 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A6B39BB11BF3A93600045F73 /* IoTSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B39BB41BF3A93600045F73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6B39BB61BF3A93600045F73 /* ConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewController.swift; sourceTree = "<group>"; };
-		A6B39BB81BF3A93600045F73 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		A6B39BBB1BF3A93600045F73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6B39BBD1BF3A93600045F73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6B39BC01BF3A93600045F73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,9 +84,7 @@
 				A6B39BB41BF3A93600045F73 /* AppDelegate.swift */,
 				A6CC2A281BFFCB6F00635393 /* IoTSampleTabBarController.swift */,
 				A6B39BB61BF3A93600045F73 /* ConnectionViewController.swift */,
-				A6B39BB81BF3A93600045F73 /* PublishViewController.swift */,
 				A6E263211C06870D0032B28D /* ConfigurationViewController.swift */,
-				A62CEE5A1BF3B50800E9C895 /* SubscribeViewController.swift */,
 				A6B39BBA1BF3A93600045F73 /* Main.storyboard */,
 				A6B39BBD1BF3A93600045F73 /* Assets.xcassets */,
 				A6B39BBF1BF3A93600045F73 /* LaunchScreen.storyboard */,
@@ -152,7 +146,7 @@
 				TargetAttributes = {
 					A6B39BB01BF3A93600045F73 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = W3DRXD72QU;
+						DevelopmentTeam = HW9ZGNVSF3;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -255,8 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6867C941BF530A700956B68 /* Constants.swift in Sources */,
-				A6B39BB91BF3A93600045F73 /* PublishViewController.swift in Sources */,
-				A62CEE5B1BF3B50800E9C895 /* SubscribeViewController.swift in Sources */,
 				A6B39BB51BF3A93600045F73 /* AppDelegate.swift in Sources */,
 				A6E263221C06870D0032B28D /* ConfigurationViewController.swift in Sources */,
 				A6CC2A291BFFCB6F00635393 /* IoTSampleTabBarController.swift in Sources */,
@@ -392,10 +384,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IoTSampleSwift/IoTSampleSwift.entitlements;
-				DEVELOPMENT_TEAM = W3DRXD72QU;
+				DEVELOPMENT_TEAM = HW9ZGNVSF3;
 				INFOPLIST_FILE = IoTSampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.iot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.iot.jds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -407,10 +399,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = IoTSampleSwift/IoTSampleSwift.entitlements;
-				DEVELOPMENT_TEAM = W3DRXD72QU;
+				DEVELOPMENT_TEAM = HW9ZGNVSF3;
 				INFOPLIST_FILE = IoTSampleSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.iot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.iot.jds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

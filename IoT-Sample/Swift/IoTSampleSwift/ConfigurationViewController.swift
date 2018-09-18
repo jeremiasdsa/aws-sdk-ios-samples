@@ -19,7 +19,7 @@ import AWSIoT
 class ConfigurationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var deleteCertificateButton: UIButton!
-    @IBOutlet weak var topicTextField: UITextField!
+  
 
     @IBAction func deleteCertificateButtonPressed(_ sender: AnyObject) {
         let actionController: UIAlertController = UIAlertController( title: nil, message: nil, preferredStyle: .actionSheet)
@@ -140,38 +140,22 @@ class ConfigurationViewController: UIViewController, UITextFieldDelegate {
         self.present( actionController, animated: true, completion: nil )
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        topicTextField.resignFirstResponder()
-        return true
-    }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        topicTextField.text = textField.text
-        let defaults = UserDefaults.standard
-        let tabBarViewController = tabBarController as! IoTSampleTabBarController
-        tabBarViewController.topic = textField.text!
-        defaults.set(textField.text, forKey:"sliderTopic")
-    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topicTextField.delegate = self
+        
         let defaults = UserDefaults.standard
         let certificateId = defaults.string( forKey: "certificateId")
-        let sliderTopic = defaults.string( forKey: "sliderTopic" )
-        let tabBarViewController = tabBarController as! IoTSampleTabBarController
 
         if (certificateId == nil)
         {
             deleteCertificateButton.isHidden=true
         }
-        if (sliderTopic != nil)
-        {
-            tabBarViewController.topic=sliderTopic!
-        }
-        
-        topicTextField.text = tabBarViewController.topic
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

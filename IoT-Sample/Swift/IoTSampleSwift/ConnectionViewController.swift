@@ -18,14 +18,17 @@ import AWSIoT
 
 class ConnectionViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var subscribeLabel: UILabel!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var logTextView: UITextView!
-
+    @IBOutlet weak var lampImage: UIImageView!
+    
+    @IBOutlet weak var statusConectImage: UIImageView!
     var connected = false;
-    var publishViewController : UIViewController!;
-    var subscribeViewController : UIViewController!;
     var configurationViewController : UIViewController!;
 
+    @IBOutlet weak var btnSwitch: UISwitch!
+    
     var iotDataManager: AWSIoTDataManager!;
     var iotManager: AWSIoTManager!;
     var iot: AWSIoT!
@@ -46,6 +49,8 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
                         tabBarViewController.mqttStatus = "Connecting..."
                         print( tabBarViewController.mqttStatus )
                         self.logTextView.text = tabBarViewController.mqttStatus
+                    
+                        self.statusConectImage.backgroundColor = UIColor.yellow
 
                     case .connected:
                         tabBarViewController.mqttStatus = "Connected"
@@ -60,13 +65,18 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
 
                         self.logTextView.text = "Using certificate:\n\(certificateId!)\n\n\nClient ID:\n\(uuid)"
 
-                        tabBarViewController.viewControllers = [ self, self.publishViewController, self.subscribeViewController ]
+                        self.statusConectImage.backgroundColor = UIColor.green
+                        
+                        tabBarViewController.viewControllers = [ self ]
+                    
 
                     case .disconnected:
                         tabBarViewController.mqttStatus = "Disconnected"
                         print( tabBarViewController.mqttStatus )
                         self.activityIndicatorView.stopAnimating()
                         self.logTextView.text = nil
+                    
+                        self.statusConectImage.backgroundColor = UIColor.red
 
                     case .connectionRefused:
                         tabBarViewController.mqttStatus = "Connection Refused"
@@ -216,17 +226,19 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
         }
     }
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let tabBarViewController = tabBarController as! IoTSampleTabBarController
-        publishViewController = tabBarViewController.viewControllers![1]
-        subscribeViewController = tabBarViewController.viewControllers![2]
-        configurationViewController = tabBarViewController.viewControllers![3]
+     
+        configurationViewController = tabBarViewController.viewControllers![1]
 
         tabBarViewController.viewControllers = [ self, configurationViewController ]
         logTextView.resignFirstResponder()
 
+        
         // Init IOT
         // Set up Cognito
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType: AWSRegion, identityPoolId: CognitoIdentityPoolId)
@@ -240,12 +252,75 @@ class ConnectionViewController: UIViewController, UITextViewDelegate {
                                                            endpoint: iotEndPoint,
                                                            credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = iotConfiguration
-
+        
         iotManager = AWSIoTManager.default()
         iot = AWSIoT.default()
-
+        
         AWSIoTDataManager.register(with: iotDataConfiguration!, forKey: ASWIoTDataManager)
         iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
+        
+
+    }
+    
+    @IBAction func subscribePressed(_ sender: Any) {
+        _ = subscribing()
+    }
+    
+    
+    fileprivate func subscribing() -> Bool {
+        return iotDataManager.subscribe(toTopic: topic, qoS: .messageDeliveryAttemptedAtMostOnce, messageCallback: {
+            (payload) ->Void in
+            let stringValue = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)!
+            
+            print("received: \(stringValue)")
+            
+            if (stringValue.isEqual(to:  "{\n" +
+                "    gpio: {\n" +
+                "        pin: 2,\n" +
+                "        state: 0\n" +
+                "    }\n" +
+                "}")) {
+                self.lampImage.image = #imageLiteral(resourceName: "lampOn")
+            } else {
+                self.lampImage.image = #imageLiteral(resourceName: "lampOff")
+            }
+            
+            DispatchQueue.main.async {
+                self.subscribeLabel.text = "\(stringValue)"
+            }
+        } )
+    }
+    
+    
+    @IBAction func switchPressed(_ sender: Any) {
+        if self.btnSwitch.isOn {
+            iotDataManager.publishString(
+                    "{\n" +
+                        "    gpio: {\n" +
+                        "        pin: 2,\n" +
+                        "        state: 0\n" +
+                        "    }\n" +
+                    "}",
+                onTopic: topic,
+                qoS:.messageDeliveryAttemptedAtMostOnce)
+        } else {
+            iotDataManager.publishString(
+                    "{\n" +
+                        "    gpio: {\n" +
+                        "        pin: 2,\n" +
+                        "        state: 1\n" +
+                        "    }\n" +
+                    "}",
+                onTopic:topic,
+                qoS:.messageDeliveryAttemptedAtMostOnce)
+        }
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        let iotDataManager = AWSIoTDataManager(forKey: ASWIoTDataManager)
+        iotDataManager.unsubscribeTopic(topic)
     }
 }
 
