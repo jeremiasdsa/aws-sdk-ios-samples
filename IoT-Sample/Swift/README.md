@@ -1,3 +1,20 @@
+# The Lamp mongoose IoT Sample
+
+This is a modified sample to controll an ESP8266's led device using a Swift app.
+
+## Requirements 
+
+You need to set up the ESP8266 following the tutorial below:
+[AWS IoT on Mongoose OS](https://aws.amazon.com/blogs/apn/aws-iot-on-mongoose-os-part-1/).
+
+## Using the Sample
+
+You can follow the default steps to set up the project. Remember to do `pod install` and configure the `Constants.swift` file
+
+
+
+
+
 # The Amazon IoT Sample
 
 This sample demonstrates use of the AWS IoT APIs to securely publish to and subscribe from an MQTT topic.  It uses Cognito authentication in conjunction with AWS IoT to create an identity (client certificate and private key) and store it in the iOS keychain.  This identity is then used to authenticate to AWS IoT.  Once a connection to the AWS IoT platform has been established, the application can operate in either the publish or subscribe role; the data format is a single floating point number in the range of 1-50.  A configuration tab is provided allowing the user to select the name of the MQTT topic being published to or subscribed from, or to delete the identity.  This application also supports the use of a pre-existing identity.
