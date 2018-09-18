@@ -11,6 +11,24 @@ You need to set up the ESP8266 following the tutorial below:
 
 You can follow the default steps to set up the project. Remember to do `pod install` and configure the `Constants.swift` file
 
+## Images
+
+<p align="center">
+  <img src="https://github.com/jeremiasdsa/aws-sdk-ios-samples/blob/lamp-mongoose-esp8266/IoT-Sample/Swift/images/Screen%20Shot%202018-09-18%20at%2011.50.34.png" width="250" title="hover text">
+  <img src="https://github.com/jeremiasdsa/aws-sdk-ios-samples/blob/lamp-mongoose-esp8266/IoT-Sample/Swift/images/Screen%20Shot%202018-09-18%20at%2011.51.35.png" width="250" alt="accessibility text">
+</p>
+
+
+<p align="center">
+  <img src="https://github.com/jeremiasdsa/aws-sdk-ios-samples/blob/lamp-mongoose-esp8266/IoT-Sample/Swift/images/Screen%20Shot%202018-09-18%20at%2011.59.00.png" width="250" title="hover text">
+  <img src="https://github.com/jeremiasdsa/aws-sdk-ios-samples/blob/lamp-mongoose-esp8266/IoT-Sample/Swift/images/Screen%20Shot%202018-09-18%20at%2011.59.11.png" width="250" alt="accessibility text">
+</p>
+
+
+<p align="center">
+  <img src="https://github.com/jeremiasdsa/aws-sdk-ios-samples/blob/lamp-mongoose-esp8266/IoT-Sample/Swift/images/Screen%20Shot%202018-09-18%20at%2012.07.56.png" width="150" title="hover text">
+  <img src="https://github.com/jeremiasdsa/aws-sdk-ios-samples/blob/lamp-mongoose-esp8266/IoT-Sample/Swift/images/Screen%20Shot%202018-09-18%20at%2012.08.04.png" width="150" alt="accessibility text">
+</p>
 
 
 
