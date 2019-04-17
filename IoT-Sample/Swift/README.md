@@ -1,6 +1,8 @@
 # The Lamp mongoose IoT Sample
 
 This is a modified sample to controll an ESP8266's led device using a Swift app.
+Installing flash driver to use on mongose.
+https://github.com/esp8266/Arduino/issues/3711
 
 ## Requirements 
 
